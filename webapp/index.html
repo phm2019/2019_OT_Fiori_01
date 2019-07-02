@@ -20,9 +20,18 @@
 	<script>
 		sap.ui.getCore().attachInit(function () {
 			sap.ui.require([
-				"sap/m/Text"
-			], function (Text) {
-				new Text({text: "Hallo Welt"}).placeAt("content");
+				"sap/m/Shell",
+				"sap/ui/core/ComponentContainer"
+			], function (Shell, ComponentContainer) {
+				new Shell({
+					app: new ComponentContainer({
+						height: "100%",
+						name: "de.integrata.training.opentext",
+						settings: {
+							id: "opentext"
+						}
+					})
+				}).placeAt("content");
 			});
 		});
 	</script>
