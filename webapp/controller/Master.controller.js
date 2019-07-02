@@ -41,7 +41,13 @@ sap.ui.define([
 		//	}
 
 		onItemPress: function(oEvent) {
-			sap.m.MessageToast.show("Item Pressed!");
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this),
+				oItemContext = oEvent.getSource().getBindingContext(),
+				sCustomerId = oItemContext.getProperty("Customerid");
+							
+			oRouter.navTo("details", {
+				CustomerId : sCustomerId
+			});
 		}
 	});
 

@@ -10,9 +10,9 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf de.integrata.training.opentext.view.Detail
 		 */
-		//	onInit: function() {
-		//
-		//	},
+			onInit: function() {
+				sap.ui.core.UIComponent.getRouterFor(this).getRoute("details").attachPatternMatched(this._onRouteMatched, this);
+			},
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -39,12 +39,22 @@ sap.ui.define([
 		//	onExit: function() {
 		//
 		//	}
-	
-		loadHtml: function(oEvent) {
-			var oHtml = this.getView().byId("IdHtml");
-			$.get("demo.html", function(data) {
-				oHtml.setContent(data);
+		
+		_onRouteMatched: function(oEvent) {
+			var sCustomerId =  oEvent.getParameter("arguments").CustomerId;
+			
+			this.getView().bindElement({
+				path: "/FlugkundeSet('" + sCustomerId + "')"
 			});
+			
+			// Bessere Syntax
+			// var oModel = this.getView().getModel();
+			// var sPath = oModel.createKey("/FlugkundeSet", {
+			// 	Customerid: sCustomerId
+			// });
+			// this.getView().bindElement({
+			// 	path: sPath
+			// });
 		}
 	});
 
