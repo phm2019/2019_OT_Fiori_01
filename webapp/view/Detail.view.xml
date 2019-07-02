@@ -11,6 +11,24 @@
 					<ObjectAttribute title="{i18n>Street}" text="{Street}"/>
 				</attributes>
 			</ObjectHeader>
+			<Table items="{Flugbuchungen}">
+				<columns>
+					<Column>
+						<Label text="{i18n>Carrid}"/>
+					</Column>
+					<Column>
+						<Label text="{i18n>Fldate}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{Carrid}"/>
+							<Text text="{path: 'Fldate', type: 'sap.ui.model.type.Date'}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</content>
 	</Page>
 </mvc:View>

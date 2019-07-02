@@ -44,7 +44,8 @@ sap.ui.define([
 			var sCustomerId =  oEvent.getParameter("arguments").CustomerId;
 			
 			this.getView().bindElement({
-				path: "/FlugkundeSet('" + sCustomerId + "')"
+				path: "/FlugkundeSet('" + sCustomerId + "')",
+				parameters: {expand: "Flugbuchungen"}
 			});
 			
 			// Bessere Syntax
@@ -53,7 +54,8 @@ sap.ui.define([
 			// 	Customerid: sCustomerId
 			// });
 			// this.getView().bindElement({
-			// 	path: sPath
+			// 	path: sPath,
+			//  parameters: {expand: "Flugbuchungen"}
 			// });
 		}
 	});
