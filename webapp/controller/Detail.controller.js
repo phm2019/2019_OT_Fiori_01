@@ -39,7 +39,13 @@ sap.ui.define([
 		//	onExit: function() {
 		//
 		//	}
-
+	
+		loadHtml: function(oEvent) {
+			var oHtml = this.getView().byId("IdHtml");
+			$.get("demo.html", function(data) {
+				oHtml.setContent(data);
+			});
+		}
 	});
 
 });

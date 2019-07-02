@@ -4,6 +4,15 @@
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page title="{i18n>DetailPageTitle}">
-		<content></content>
+		<content>
+			<core:HTML id="IdHtml"/>
+		</content>
+		<footer>
+			<Bar>
+				<contentMiddle>
+					<Button text="Lade HTML" press="loadHtml"/>
+				</contentMiddle>
+			</Bar>
+		</footer>
 	</Page>
 </mvc:View>

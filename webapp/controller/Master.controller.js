@@ -40,6 +40,9 @@ sap.ui.define([
 		//
 		//	}
 
+		onItemPress: function(oEvent) {
+			sap.m.MessageToast.show("Item Pressed!");
+		}
 	});
 
 });
