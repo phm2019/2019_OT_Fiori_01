@@ -1,7 +1,8 @@
 /* global document */
 sap.ui.define([
-		"sap/ui/core/UIComponent"
-	], function (UIComponent) {
+		"sap/ui/core/UIComponent",
+		"sap/m/routing/Router"
+	], function (UIComponent, Router) {
 		"use strict";
 		
 		return UIComponent.extend("de.integrata.training.opentext.Component", {
@@ -9,6 +10,36 @@ sap.ui.define([
 				rootView: {
 					viewName: "de.integrata.training.opentext.view.App",
 					type: "XML"
+				},
+				routing: {
+					config: {
+						routerClass: Router,
+						viewType: "XML",
+						viewPath: "de.integrata.training.opentext.view",
+						controlId: "IdSplitApp",
+						controlAggregation: "detailPages",
+						transition: "slide",
+						async: true
+					},
+					routes: [
+						{
+							pattern: "",
+							name: "main",
+							target: [
+								"master",
+								"details"
+							]					
+						}
+					],
+					targets: {
+						master: {
+							controlAggregation: "masterPages",
+							viewName: "Master"
+						},
+						details: {
+							viewName: "Detail"
+						}
+					}
 				}
 			},
 			
@@ -20,6 +51,7 @@ sap.ui.define([
 			 */
 			init : function () {
 				UIComponent.prototype.init.apply(this, arguments);
+				this.getRouter().initialize();
 			}
 		});
 	}

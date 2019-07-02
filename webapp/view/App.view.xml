@@ -3,11 +3,5 @@
 	xmlns="sap.m" 
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc" >
-	<App>
-		<pages>
-			<Page title="Hallo Welt">
-				<content></content>
-			</Page>
-		</pages>
-	</App>
+	<SplitApp id="IdSplitApp"/>
 </mvc:View>
